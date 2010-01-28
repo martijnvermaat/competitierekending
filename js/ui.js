@@ -25,6 +25,7 @@
 
 $(document).ready(function() {
 
+    // TODO: image preloading, comments
 
     var TO_POINTS = 0;
     var TO_PERFORMANCE = 1;
@@ -130,11 +131,15 @@ $(document).ready(function() {
 
     var updateLink = function() {
 
-        $('#link').attr(
-            'href',
-            location.replace(re_querystring, '$1') + '#' +
-                encodeURIComponent(JSON.stringify(bookmarks))
-        );
+        try {
+            var s = JSON.stringify(bookmarks);
+            $('#link').attr('href',
+                            location.replace(re_querystring, '$1') + '#'
+                            + encodeURIComponent(s)
+            );
+        } catch (e) {
+            $('#link').parent().hide();
+        }
 
         if (bookmarks.length > 0) {
             $('#bookmarks-title').show();
