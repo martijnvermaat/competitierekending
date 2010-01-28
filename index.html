@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/calculator.js"></script>
+    <script type="text/javascript" src="js/ui.js"></script>
+    <title>Competitie rekending</title>
+</head>
+
+<body>
+
+<h1>Competitie rekending</h1>
+
+<ol class="fields">
+    <li>
+        <a href="#" id="bookmark" title="Bewaar dit resultaat">Bewaar dit resultaat</a>
+        <select id="events" name="events">
+            <option value="dummy">Kies een onderdeel
+        </select>
+    </li>
+    <li>
+        <input type="radio" name="sex" id="male" checked="checked"><label for="male">Mannen</label>
+        <input type="radio" name="sex" id="female"><label for="female">Vrouwen</label>
+    </li>
+    <li>
+        <label for="performance">Prestatie</label>
+        <input type="text" name="performance" id="performance">
+    </li>
+    <li>
+        <label for="points">Punten</label>
+        <input type="text" name="points" id="points">
+    </li>
+</ol>
+
+<h2 id="bookmarks-title">Bewaarde resultaten <span class="note">(<a href="#" id="link">link</a>)</span></h2>
+
+<ul id="bookmarks">
+</ul>
+
+<p class="note">
+  <a href="http://www.atletiekunie.nl/upload/File/Dutch_Athletes/Formules%20en%20constanten%20(20-11-03).doc">wedstrijdreglement</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="http://svn.vermaat.name/competitie-rekending">broncode</a>
+</p>
+
+</body>
+
+</html>
