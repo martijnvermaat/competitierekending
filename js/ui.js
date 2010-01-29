@@ -130,19 +130,60 @@ $(document).ready(function() {
     };
 
 
+    var encodeState = function(s) {
+
+        var r = JSON.stringify($.map(s, function(b) {
+            // Don't include hash to keep state small
+            return {
+                'e' : b.e,
+                's' : b.s,
+                'p' : b.p,
+                'q' : b.q
+            };
+        }));
+
+        var map = [];
+        map['"'] = 'A';
+        map[':'] = 'B';
+        map[','] = 'C';
+        map['['] = 'D';
+        map[']'] = 'E';
+        map['{'] = 'F';
+        map['}'] = 'G';
+
+        return encodeURIComponent(
+            r.replace(/[":,\[\]{}]/g,
+                      function(c) { return map[c]; })
+        );
+
+    };
+
+
+    var decodeState = function(s) {
+
+        var r = decodeURIComponent(s);
+
+        var map = [];
+        map['A'] = '"';
+        map['B'] = ':';
+        map['C'] = ',';
+        map['D'] = '[';
+        map['E'] = ']';
+        map['F'] = '{';
+        map['G'] = '}';
+
+        return JSON.parse(
+            r.replace(/[ABCDEFG]/g,
+                      function(c) { return map[c]; })
+        );
+
+    };
+
+
     var updateLocation = function() {
 
         try {
-            var s = JSON.stringify($.map(bookmarks, function(b) {
-                // Don't include hash to keep state small
-                return {
-                    'e' : b.e,
-                    's' : b.s,
-                    'p' : b.p,
-                    'q' : b.q
-                };
-            }));
-            loc.href = url + '#' + encodeURIComponent(s);
+            loc.href = url + '#' + encodeState(bookmarks);
             $('#mail').attr(
                 'href',
                 'mailto:?subject=Competitieresultaten&body=De resultaten: '
@@ -161,10 +202,10 @@ $(document).ready(function() {
     };
 
 
-    var loadBookmarks = function() {
+    var loadBookmarks = function(s) {
 
         try {
-            var p = JSON.parse(decodeURIComponent(state));
+            var p = decodeState(s);
             for (i = 0; i < p.length; i++) {
                 bookmark(p[i].e, p[i].s, p[i].p, p[i].q);
             }
@@ -207,7 +248,7 @@ $(document).ready(function() {
 
     updateLocation();
     updateBookmark();
-    loadBookmarks();
+    loadBookmarks(state);
 
 
 });
