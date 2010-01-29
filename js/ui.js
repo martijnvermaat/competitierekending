@@ -27,9 +27,9 @@ $(document).ready(function() {
 
     /*
       TODO:
-      image preloading
-      comments
-      bookmark keyboard shortcut does not work in webkit in text field
+      Comments
+      Bookmark keyboard shortcut does not work in webkit in text field
+      Nothing works in IE
     */
 
     var TO_POINTS = 0;
