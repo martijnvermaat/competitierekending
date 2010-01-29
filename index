@@ -12,12 +12,12 @@
     <script type="text/javascript" src="js/json2.js"></script>
     <script type="text/javascript" src="js/calculator.js"></script>
     <script type="text/javascript" src="js/ui.js"></script>
-    <title>Competitie rekending</title>
+    <title>Competitierekending</title>
 </head>
 
 <body>
 
-<h1>Competitie rekending</h1>
+<h1>Competitierekending</h1>
 
 <ol class="fields">
     <li>
@@ -40,7 +40,7 @@
     </li>
 </ol>
 
-<h2 id="bookmarks-title">Bewaarde resultaten <span class="note">(<a href="#" id="link">link</a>)</span></h2>
+<h2 id="bookmarks-title">Bewaarde resultaten <a href="#" id="mail" title="Verstuur deze resultaten via e-mail">Verstuur deze resultaten via e-mail</a></h2>
 
 <ul id="bookmarks">
 </ul>

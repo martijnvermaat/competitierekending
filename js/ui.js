@@ -1,6 +1,6 @@
 /***********************************************************************
 
-    Competitie rekending
+    Competitierekending
 
     Given a time or distance performed at a competition event, calculate
     the number of points. And the other way around.
@@ -31,8 +31,9 @@ $(document).ready(function() {
     var TO_PERFORMANCE = 1;
     var direction = TO_POINTS;
 
-    var re_querystring = /^([^#?]*\??[^#]*)#?(.*)/;
-    var location = window.location.href;
+    var loc = window.location;
+    var url = loc.href.replace(/^([^#?]*\??[^#]*)#?(.*)/, '$1');
+    var state = loc.href.replace(/^([^#?]*\??[^#]*)#?(.*)/, '$2');
 
     var bookmarks = [];
 
@@ -100,11 +101,11 @@ $(document).ready(function() {
 
         var hash = Math.floor(Math.random() * 100000000);
 
-        bookmarks.push({'hash'        : hash,
-                        'event'       : event,
-                        'sex'         : sex,
-                        'performance' : performance,
-                        'points'      : points});
+        bookmarks.push({'hash' : hash,
+                        'e'    : event,
+                        's'    : sex,
+                        'p'    : performance,
+                        'q'    : points});
 
         var r = $('<a href="#" class="remove">Verwijder dit resultaat</a>');
         r.attr('title', r.text()).click(function() {
@@ -112,7 +113,7 @@ $(document).ready(function() {
                 return b.hash != hash;
             });
             $(this).parent().remove();
-            updateLink();
+            updateLocation();
             return false;
         });
 
@@ -124,21 +125,31 @@ $(document).ready(function() {
             $('<li>').text(s).prepend(r)
         );
 
-        updateLink();
+        updateLocation();
 
     };
 
 
-    var updateLink = function() {
+    var updateLocation = function() {
 
         try {
-            var s = JSON.stringify(bookmarks);
-            $('#link').attr('href',
-                            location.replace(re_querystring, '$1') + '#'
-                            + encodeURIComponent(s)
-            );
+            var s = JSON.stringify($.map(bookmarks, function(b) {
+                // Don't include hash to keep state small
+                return {
+                    'e' : b.e,
+                    's' : b.s,
+                    'p' : b.p,
+                    'q' : b.q
+                };
+            }));
+            loc.href = url + '#' + encodeURIComponent(s);
+            $('#mail').attr(
+                'href',
+                'mailto:?subject=Competitieresultaten&body=De resultaten: '
+                    + loc.href
+            ).show();
         } catch (e) {
-            $('#link').parent().hide();
+            $('#mail').hide();
         }
 
         if (bookmarks.length > 0) {
@@ -152,12 +163,10 @@ $(document).ready(function() {
 
     var loadBookmarks = function() {
 
-        var s = decodeURIComponent(location.replace(re_querystring, '$2'));
-
         try {
-            var p = JSON.parse(s);
+            var p = JSON.parse(decodeURIComponent(state));
             for (i = 0; i < p.length; i++) {
-                bookmark(p[i].event, p[i].sex, p[i].performance, p[i].points);
+                bookmark(p[i].e, p[i].s, p[i].p, p[i].q);
             }
         } catch (e) {}
 
@@ -196,7 +205,7 @@ $(document).ready(function() {
 
     $(document).keypress(bookmarkShortcut);
 
-    updateLink();
+    updateLocation();
     updateBookmark();
     loadBookmarks();
 

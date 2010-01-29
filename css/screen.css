@@ -16,11 +16,6 @@ h1, h2 {
     font-size           :   14px;
 }
 
-span.note {
-    font-weight         :   normal;
-    font-size           :   14px;
-}
-
 p.note {
     margin-top          :   20px;
     font-weight         :   normal;
@@ -35,6 +30,11 @@ a {
 
 a:hover {
     text-decoration     :   underline;
+}
+
+#mail {
+    font-weight         :   normal;
+    font-size           :   14px;
 }
 
 #events {
@@ -90,4 +90,16 @@ ol.fields li {
 
 .remove {
     background          :   url("../img/remove.png") center center no-repeat;
+}
+
+#mail {
+    display             :   inline-block;
+    zoom                :   1;
+    display             :  -moz-inline-box;
+    width               :   22px;
+    height              :   22px;
+    margin              :   0 10px 0 10px;
+    padding             :   0;
+    text-indent         :  -10000px;
+    background          :   url("../img/mail.png") center center no-repeat;
 }

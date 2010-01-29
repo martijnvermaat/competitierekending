@@ -1,6 +1,6 @@
 /***********************************************************************
 
-    Competitie rekending
+    Competitierekending
 
     Given a time or distance performed at a competition event, calculate
     the number of points. And the other way around.
