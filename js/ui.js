@@ -25,7 +25,12 @@
 
 $(document).ready(function() {
 
-    // TODO: image preloading, comments
+    /*
+      TODO:
+      image preloading
+      comments
+      bookmark keyboard shortcut does not work in webkit in text field
+    */
 
     var TO_POINTS = 0;
     var TO_PERFORMANCE = 1;
