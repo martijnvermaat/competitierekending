@@ -80,16 +80,16 @@ ol.fields li {
 }
 
 #bookmark {
-    background          :   url("../img/add.png") center center no-repeat;
+    background          :   url("../img/buttons.png") -22px 0 no-repeat;
 }
 
 #bookmark.disabled {
-    background          :   url("../img/add-disabled.png") center center no-repeat;
+    background          :   url("../img/buttons.png") 0 0 no-repeat;
     cursor              :   default;
 }
 
 .remove {
-    background          :   url("../img/remove.png") center center no-repeat;
+    background          :   url("../img/buttons.png") -44px 0 no-repeat;
 }
 
 #mail {
@@ -101,5 +101,5 @@ ol.fields li {
     margin              :   0 10px 0 10px;
     padding             :   0;
     text-indent         :  -10000px;
-    background          :   url("../img/mail.png") center center no-repeat;
+    background          :   url("../img/buttons.png") -66px 0 no-repeat;
 }
