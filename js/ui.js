@@ -8,7 +8,7 @@
     Formulas are taken from 'Formules en Constanten' [1], January 2004
     version, part of Wedstrijdreglement Atletiekunie.
 
-    Version 1.1, 2010-01-28
+    Version 1.2, 2010-02-17
 
     Copyright 2010, Martijn Vermaat <martijn@vermaat.name>
                     Sander van der Kruyssen <sandiaan@gmail.com>
@@ -25,20 +25,25 @@
 
 $(document).ready(function() {
 
+
     /*
       TODO:
       Comments
       Bookmark keyboard shortcut does not work in webkit in text field
+      HTML5
+      Points should have digit keyboard on iPhone
       Nothing works in IE
     */
+
 
     var TO_POINTS = 0;
     var TO_PERFORMANCE = 1;
     var direction = TO_POINTS;
 
     var loc = window.location;
-    var url = loc.href.replace(/^([^#?]*\??[^#]*)#?(.*)/, '$1');
-    var state = loc.href.replace(/^([^#?]*\??[^#]*)#?(.*)/, '$2');
+    var urlPattern = /^([^#?]*\??[^#]*)#?(.*)/;
+    var baseUrl = loc.href.replace(urlPattern, '$1');
+    var state = '';
 
     var bookmarks = [];
 
@@ -94,6 +99,7 @@ $(document).ready(function() {
                          $('#male').is(':checked'),
                          $('#performance').val(),
                          $('#points').val());
+                updateState();
                 return false;
             }).removeClass('disabled');
 
@@ -118,7 +124,7 @@ $(document).ready(function() {
                 return b.hash != hash;
             });
             $(this).parent().remove();
-            updateLocation();
+            updateState();
             return false;
         });
 
@@ -130,12 +136,12 @@ $(document).ready(function() {
             $('<li>').text(s).prepend(r)
         );
 
-        updateLocation();
-
     };
 
 
     var encodeState = function(s) {
+
+        if (s.length == 0) return '';
 
         var r = JSON.stringify($.map(s, function(b) {
             // Don't include hash to keep state small
@@ -166,6 +172,8 @@ $(document).ready(function() {
 
     var decodeState = function(s) {
 
+        if (!s) return [];
+
         var r = decodeURIComponent(s);
 
         var map = [];
@@ -185,36 +193,55 @@ $(document).ready(function() {
     };
 
 
-    var updateLocation = function() {
+    var loadState = function(s) {
+
+        if (!s) return false;
 
         try {
-            loc.href = url + '#' + encodeState(bookmarks);
+            var p = decodeState(s);
+            if ($.isArray(p) && p.length > 0) {
+                for (i = 0; i < p.length; i++) {
+                    bookmark(p[i].e, p[i].s, p[i].p, p[i].q);
+                }
+            }
+            updateState();
+            return true;
+        } catch (e) { }
+
+        updateState();
+        return false;
+
+    };
+
+
+    var updateState = function() {
+
+        var state = '';
+
+        try {
+            state = encodeState(bookmarks)
+        } catch (e) { }
+
+        if (state) {
+            loc.href = baseUrl + '#' + state;
             $('#mail').attr(
                 'href',
                 'mailto:?subject=Competitieresultaten&body=De resultaten: '
                     + loc.href
             ).show();
-        } catch (e) {
+        } else {
+            if (loc.href != baseUrl)
+                loc.href = baseUrl + '#';
             $('#mail').hide();
         }
 
-        if (bookmarks.length > 0) {
+        if (sessionStorage)
+            sessionStorage.state = state;
+
+        if (bookmarks.length > 0)
             $('#bookmarks-title').show();
-        } else {
+        else
             $('#bookmarks-title').hide();
-        }
-
-    };
-
-
-    var loadBookmarks = function(s) {
-
-        try {
-            var p = decodeState(s);
-            for (i = 0; i < p.length; i++) {
-                bookmark(p[i].e, p[i].s, p[i].p, p[i].q);
-            }
-        } catch (e) {}
 
     };
 
@@ -226,6 +253,7 @@ $(document).ready(function() {
                 callback(e);
         };
     };
+
 
     var bookmarkShortcut = function(e) {
         // Key 'b'
@@ -249,11 +277,16 @@ $(document).ready(function() {
     $('#performance').keyup(ignoreNav(toPoints));
     $('#points').keyup(ignoreNav(toPerformance));
 
+    $('#bookmarks-title').hide();
+
     $(document).keypress(bookmarkShortcut);
 
-    updateLocation();
     updateBookmark();
-    loadBookmarks(state);
+
+    if (!loadState(loc.href.replace(urlPattern, '$2'))
+        && sessionStorage) {
+            loadState(sessionStorage.state);
+    }
 
 
 });

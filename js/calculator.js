@@ -8,7 +8,7 @@
     Formulas are taken from 'Formules en Constanten' [1], January 2004
     version, part of Wedstrijdreglement Atletiekunie.
 
-    Version 1.1, 2010-01-29
+    Version 1.2, 2010-01-29
 
     Copyright 2010, Martijn Vermaat <martijn@vermaat.name>
                     Sander van der Kruyssen <sandiaan@gmail.com>
