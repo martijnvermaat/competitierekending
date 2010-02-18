@@ -30,10 +30,6 @@ $(document).ready(function() {
       TODO:
       Comments
       Bookmark keyboard shortcut does not work in webkit in text field
-      HTML5
-      Points should have digit keyboard on iPhone
-      Nothing works in IE
-      Remove old images
       Check if performance pattern attribute is usefull on iPhone
     */
 
@@ -217,7 +213,7 @@ $(document).ready(function() {
             $('#link').hide();
         }
 
-        if (sessionStorage)
+        if (typeof sessionStorage !== 'undefined')
             sessionStorage.state = state;
 
         if (bookmarks.length > 0)
@@ -285,9 +281,8 @@ $(document).ready(function() {
     $(document).keypress(filterShortcuts);
 
     if (!loadState(loc.href.replace(urlPattern, '$2'))
-        && sessionStorage) {
+        && typeof sessionStorage !== 'undefined')
             loadState(sessionStorage.state);
-    }
 
 
 });

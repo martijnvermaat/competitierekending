@@ -15,12 +15,12 @@
 </head>
 <body>
 <h1>Competitierekending</h1>
-<section id="form">
+<div id="form">
 <button type="button" id="bookmark" disabled="disabled">Bewaar dit resultaat</button>
 <ul>
   <li>
     <select id="events" name="events">
-      <option value="dummy">Kies een onderdeel
+      <option value="dummy">Kies een onderdeel</option>
     </select>
   </li>
   <li>
@@ -36,11 +36,11 @@
     <input type="text" name="points" id="points" pattern="[0-9]*" placeholder="615">
   </li>
 </ul>
-</section>
-<section id="bookmarks" hidden="hidden">
+</div>
+<div id="bookmarks" hidden="hidden">
 <h1>Bewaarde resultaten <a id="link" title="Link naar deze resultaten">Link naar deze resultaten</a><button type="button" id="clear">Resultaten verwijderen</button></h1>
 <ul></ul>
-</section>
+</div>
 <footer>
   <p>
     <a href="http://www.atletiekunie.nl/upload/File/Dutch_Athletes/Formules%20en%20constanten%20(20-11-03).doc">wedstrijdreglement</a>
