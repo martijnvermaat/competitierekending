@@ -1,11 +1,11 @@
 html {
-    background          :   #eee;
+    background          :   #111;
 }
 
 body {
     margin              :   10px;
-    background          :   #eee;
-    color               :   #111;
+    background          :   #111;
+    color               :   #bbb;
     font-family         :   Verdana, Arial, Helvetica, sans-serif;
     font-size           :   14px;
     line-height         :   26px;
@@ -23,7 +23,7 @@ section {
 }
 
 a {
-    color               :   #111;
+    color               :   #bbb;
     text-decoration     :   none;
 }
 

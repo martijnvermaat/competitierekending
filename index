@@ -19,7 +19,7 @@
 <button type="button" id="bookmark" disabled="disabled">Bewaar dit resultaat</button>
 <ul>
   <li>
-    <select id="events" name="events" autofocus>
+    <select id="events" name="events">
       <option value="dummy">Kies een onderdeel
     </select>
   </li>
