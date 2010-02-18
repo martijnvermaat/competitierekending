@@ -1,0 +1,126 @@
+html {
+    background          :   #eee;
+}
+
+body {
+    margin              :   10px;
+    background          :   #eee;
+    color               :   #111;
+    font-family         :   Verdana, Arial, Helvetica, sans-serif;
+    font-size           :   14px;
+    line-height         :   26px;
+}
+
+h1 {
+    font-weight         :   bold;
+    font-size           :   14px;
+    line-height         :   22px;
+}
+
+section {
+    margin              :   0;
+    padding             :   0;
+}
+
+a {
+    color               :   #111;
+    text-decoration     :   none;
+}
+
+a:hover {
+    text-decoration     :   underline;
+}
+
+button {
+    display             :   block;
+    width               :   22px;
+    height              :   22px;
+    padding             :   0;
+    text-indent         :  -10000px;
+    border              :   none;
+    cursor              :   pointer;
+}
+
+button[disabled] {
+    cursor              :   default;
+}
+
+#bookmark {
+    float               :   left;
+    margin              :   6px 10px 0 -2px;
+    background          :   url("../images/buttons.png") -22px 0 no-repeat;
+}
+
+#bookmark[disabled] {
+    background          :   url("../images/buttons.png") 0 0 no-repeat;
+}
+
+.remove {
+    float               :   left;
+    margin              :   2px 10px 0 -32px;
+    background          :   url("../images/buttons.png") -44px 0 no-repeat;
+}
+
+#clear {
+    display             :   inline-block;
+    zoom                :   1;
+    display             :  -moz-inline-box;
+    margin              :   0 10px 0 10px;
+    background          :   url("../images/buttons.png") -88px 0 no-repeat;
+}
+
+#link {
+    display             :   inline-block;
+    zoom                :   1;
+    display             :  -moz-inline-box;
+    width               :   22px;
+    height              :   22px;
+    margin              :   0 5px 0 10px;
+    padding             :   0;
+    text-indent         :  -10000px;
+    background          :   url("../images/buttons.png") -66px 0 no-repeat;
+}
+
+#form ul, #bookmarks ul {
+    padding             :   0;
+    margin              :   0 0 0 30px;
+}
+
+#form li, #bookmarks li {
+    list-style          :   none;
+    padding             :   0;
+    margin              :   0;
+}
+
+#form li {
+    padding             :   4px 0 4px 0;
+}
+
+#events {
+    width               :   220px;
+}
+
+#performance, #points {
+    width               :   120px;
+    padding-right       :   4px;
+    text-align          :   right;
+}
+
+label {
+    display             :   inline-block;
+    zoom                :   1;
+    display             :  -moz-inline-box;
+    width               :   80px;
+    vertical-align      :   top;
+}
+
+footer p {
+    margin-top          :   20px;
+    font-weight         :   normal;
+    font-size           :   10px;
+    line-height         :   12px;
+}
+
+*[hidden] {
+    display             :   none;
+}

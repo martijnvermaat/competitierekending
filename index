@@ -1,56 +1,52 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="nl" manifest="calculator.manifest">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <link rel="apple-touch-icon" href="img/iphone.png">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/json2.js"></script>
-    <script type="text/javascript" src="js/calculator.js"></script>
-    <script type="text/javascript" src="js/ui.js"></script>
-    <title>Competitierekending</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Competitierekending</title>
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/iphone.png">
+  <link rel="stylesheet" href="stylesheets/screen.css">
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/json2.js"></script>
+  <script src="javascripts/calculator.js"></script>
+  <script src="javascripts/ui.js"></script>
 </head>
-
 <body>
-
 <h1>Competitierekending</h1>
-
-<ol class="fields">
-    <li>
-        <a href="#" id="bookmark" title="Bewaar dit resultaat">Bewaar dit resultaat</a>
-        <select id="events" name="events">
-            <option value="dummy">Kies een onderdeel
-        </select>
-    </li>
-    <li>
-        <input type="radio" name="sex" id="male" checked="checked"><label for="male">Mannen</label>
-        <input type="radio" name="sex" id="female"><label for="female">Vrouwen</label>
-    </li>
-    <li>
-        <label for="performance">Prestatie</label>
-        <input type="text" name="performance" id="performance">
-    </li>
-    <li>
-        <label for="points">Punten</label>
-        <input type="text" name="points" id="points">
-    </li>
-</ol>
-
-<h2 id="bookmarks-title">Bewaarde resultaten <a href="#" id="mail" title="Verstuur deze resultaten via e-mail">Verstuur deze resultaten via e-mail</a></h2>
-
-<ul id="bookmarks">
+<section id="form">
+<button type="button" id="bookmark" disabled="disabled">Bewaar dit resultaat</button>
+<ul>
+  <li>
+    <select id="events" name="events" autofocus>
+      <option value="dummy">Kies een onderdeel
+    </select>
+  </li>
+  <li>
+    <input type="radio" name="sex" id="male" checked="checked"><label for="male">Mannen</label>
+    <input type="radio" name="sex" id="female"><label for="female">Vrouwen</label>
+  </li>
+  <li>
+    <label for="performance">Prestatie</label>
+    <input type="text" name="performance" id="performance" pattern="[0-9.:]*" placeholder="8.95 of 1:41.11">
+  </li>
+  <li>
+    <label for="points">Punten</label>
+    <input type="text" name="points" id="points" pattern="[0-9]*" placeholder="615">
+  </li>
 </ul>
-
-<p class="note">
-  <a href="http://www.atletiekunie.nl/upload/File/Dutch_Athletes/Formules%20en%20constanten%20(20-11-03).doc">wedstrijdreglement</a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="http://svn.vermaat.name/competitie-rekending">broncode</a>
-</p>
-
+</section>
+<section id="bookmarks" hidden="hidden">
+<h1>Bewaarde resultaten <a id="link" title="Link naar deze resultaten">Link naar deze resultaten</a><button type="button" id="clear">Resultaten verwijderen</button></h1>
+<ul></ul>
+</section>
+<footer>
+  <p>
+    <a href="http://www.atletiekunie.nl/upload/File/Dutch_Athletes/Formules%20en%20constanten%20(20-11-03).doc">wedstrijdreglement</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://svn.vermaat.name/competitie-rekending">broncode</a>
+  </p>
+</footer>
 </body>
-
 </html>

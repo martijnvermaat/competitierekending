@@ -1,0 +1,13 @@
+CACHE MANIFEST
+
+# Cache this application for offline use
+# Manifest version 1
+
+images/buttons.png
+
+stylesheets/screen.css
+
+javascripts/jquery.js
+javascripts/json2.js
+javascripts/calculator.js
+javascripts/ui.js
