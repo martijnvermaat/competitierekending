@@ -38,15 +38,20 @@
 </ul>
 </div>
 <div id="bookmarks" hidden="hidden">
-<h1>Bewaarde resultaten <a id="link" title="Link naar deze resultaten">Link naar deze resultaten</a><button type="button" id="clear">Resultaten verwijderen</button></h1>
+<h1>Bewaarde resultaten <a id="link">Link naar deze resultaten</a><button type="button" id="clear">Resultaten verwijderen</button></h1>
 <ul></ul>
 </div>
-<footer>
-  <p>
-    <a href="http://www.atletiekunie.nl/upload/File/Dutch_Athletes/Formules%20en%20constanten%20(20-11-03).doc">wedstrijdreglement</a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="http://svn.vermaat.name/competitie-rekending">broncode</a>
-  </p>
-</footer>
+<div id="info">
+<p>Dit rekending is geoptimaliseerd voor appel telefoontjes, niet
+  voor het winnen van atletiekcompetities.</p>
+<p><a href="http://www.atletiekunie.nl/upload/File/Dutch_Athletes/Formules%20en%20constanten%20(20-11-03).doc">Wedstrijdreglement (.doc)</a></p>
+<p><a href="http://phanatics.nl/">Phanos Phanatics</a></p>
+<p><a href="http://svn.vermaat.name/competitie-rekending">Broncode</a></p>
+<p>
+  &copy; 2010, <a href="http://nl.wikipedia.org/wiki/MIT-licentie">MIT licentie</a><br>
+  <a href="http://martijn.vermaat.name/">Martijn Vermaat</a><br>
+  Sander van der Kruyssen
+</p>
+</div>
 </body>
 </html>

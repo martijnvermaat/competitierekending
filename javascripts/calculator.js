@@ -8,7 +8,7 @@
     Formulas are taken from 'Formules en Constanten' [1], January 2004
     version, part of Wedstrijdreglement Atletiekunie.
 
-    Version 1.2, 2010-01-29
+    Version 1.3, 2010-02-19
 
     Copyright 2010, Martijn Vermaat <martijn@vermaat.name>
                     Sander van der Kruyssen <sandiaan@gmail.com>
@@ -180,7 +180,7 @@ var calculator = function() {
             women: timeEvent(112752.00, 925.70),
         },
         {
-            title: '4*100 meter',
+            title: '4x100 meter',
             men:   timeEvent(118175.1, 1880.65),
             women: timeEvent(122328.00, 1677.75)
         },
