@@ -249,7 +249,7 @@ $(document).ready(function() {
     };
 
 
-    // Store the serialized state in the URL and in the session
+    // Store the serialized state in the URL and in the local storage
     var updateState = function() {
 
         // Asume the state is empty
@@ -268,8 +268,8 @@ $(document).ready(function() {
             $('#link').hide();
         }
 
-        if (typeof sessionStorage !== 'undefined')
-            sessionStorage.state = state;
+        if (typeof localStorage !== 'undefined')
+            localStorage.state = state;
 
         // Show or hide the HTML bookmarks list
         if (bookmarks.length > 0)
@@ -356,11 +356,11 @@ $(document).ready(function() {
 
     /*
       Try to load state from URL. If no state was loaded, try to load state
-      from session.
+      from local storage.
     */
     if (!loadState(decodeURIComponent(loc.href.replace(urlPattern, '$2')))
-        && typeof sessionStorage !== 'undefined')
-            loadState(sessionStorage.state);
+        && typeof localStorage !== 'undefined')
+            loadState(localStorage.state);
 
 
 });

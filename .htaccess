@@ -1,7 +1,6 @@
 AddType text/css .css
 AddType text/javascript .js
 AddType "text/html; charset=utf-8" .html
-AddType text/cache-manifest .manifest
 
 <FilesMatch "^[^\.]+$">
     ForceType "text/html; charset=utf-8"
