@@ -1,0 +1,19 @@
+Competitierekending
+
+Given a time or distance performed at a competition event, calculate
+the number of points. And the other way around.
+
+Formulas are taken from 'Formules en Constanten' [1], January 2004
+version, part of Wedstrijdreglement Atletiekunie.
+
+Version 1.3, 2010-02-19
+
+Copyright 2010, Martijn Vermaat <martijn@vermaat.name>
+                Sander van der Kruyssen <sandiaan@gmail.com>
+
+https://github.com/martijnvermaat/competitierekending
+
+Licensed under the MIT license [2], see the LICENSE file
+
+[1] http://www.atletiekunie.nl/upload/File/Dutch_Athletes/Formules%20en%20constanten%20(20-11-03).doc
+[2] http://en.wikipedia.org/wiki/Mit_license
