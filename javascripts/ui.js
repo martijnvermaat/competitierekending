@@ -13,7 +13,7 @@
     Copyright 2010, Martijn Vermaat <martijn@vermaat.name>
                     Sander van der Kruyssen <sandiaan@gmail.com>
 
-    http://svn.vermaat.name/competitie-rekending
+    https://github.com/martijnvermaat/competitierekending
 
     Licensed under the MIT license [2], see the LICENSE file
 
